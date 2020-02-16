@@ -1,0 +1,11 @@
+function errorHandler(res, reason, message) {
+    if (typeof reason === 'object') {
+        res.locals.globalError = reason.errors;
+    } else {
+        res.locals.globalError = {
+            reason: message
+        }
+    }
+}
+
+module.exports = errorHandler;
